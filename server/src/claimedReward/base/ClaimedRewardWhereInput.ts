@@ -56,17 +56,6 @@ class ClaimedRewardWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  rewardId?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
     type: () => UserWhereUniqueInput,
   })
   @ValidateNested()
@@ -76,17 +65,6 @@ class ClaimedRewardWhereInput {
     nullable: true,
   })
   user?: UserWhereUniqueInput;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  userId?: StringNullableFilter;
 }
 
 export { ClaimedRewardWhereInput as ClaimedRewardWhereInput };

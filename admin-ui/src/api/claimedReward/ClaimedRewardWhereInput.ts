@@ -7,7 +7,5 @@ export type ClaimedRewardWhereInput = {
   id?: StringFilter;
   qrCodeUrl?: StringNullableFilter;
   reward?: RewardWhereUniqueInput;
-  rewardId?: StringNullableFilter;
   user?: UserWhereUniqueInput;
-  userId?: StringNullableFilter;
 };

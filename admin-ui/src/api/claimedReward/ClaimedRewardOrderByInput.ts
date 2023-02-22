@@ -5,8 +5,6 @@ export type ClaimedRewardOrderByInput = {
   id?: SortOrder;
   qrCodeUrl?: SortOrder;
   rewardId?: SortOrder;
-  rewardId?: SortOrder;
   updatedAt?: SortOrder;
-  userId?: SortOrder;
   userId?: SortOrder;
 };

@@ -41,12 +41,10 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
             >
               <TextField source={REWARD_TITLE_FIELD} />
             </ReferenceField>
-            <TextField label="rewardId" source="rewardId" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField label="user" source="user.id" reference="User">
               <TextField source={USER_TITLE_FIELD} />
             </ReferenceField>
-            <TextField label="userId" source="userId" />
           </Datagrid>
         </ReferenceManyField>
         <ReferenceManyField

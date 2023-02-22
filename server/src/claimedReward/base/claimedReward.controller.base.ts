@@ -76,7 +76,6 @@ export class ClaimedRewardControllerBase {
           },
         },
 
-        rewardId: true,
         updatedAt: true,
 
         user: {
@@ -84,8 +83,6 @@ export class ClaimedRewardControllerBase {
             id: true,
           },
         },
-
-        userId: true,
       },
     });
   }
@@ -117,7 +114,6 @@ export class ClaimedRewardControllerBase {
           },
         },
 
-        rewardId: true,
         updatedAt: true,
 
         user: {
@@ -125,8 +121,6 @@ export class ClaimedRewardControllerBase {
             id: true,
           },
         },
-
-        userId: true,
       },
     });
   }
@@ -159,7 +153,6 @@ export class ClaimedRewardControllerBase {
           },
         },
 
-        rewardId: true,
         updatedAt: true,
 
         user: {
@@ -167,8 +160,6 @@ export class ClaimedRewardControllerBase {
             id: true,
           },
         },
-
-        userId: true,
       },
     });
     if (result === null) {
@@ -224,7 +215,6 @@ export class ClaimedRewardControllerBase {
             },
           },
 
-          rewardId: true,
           updatedAt: true,
 
           user: {
@@ -232,8 +222,6 @@ export class ClaimedRewardControllerBase {
               id: true,
             },
           },
-
-          userId: true,
         },
       });
     } catch (error) {
@@ -274,7 +262,6 @@ export class ClaimedRewardControllerBase {
             },
           },
 
-          rewardId: true,
           updatedAt: true,
 
           user: {
@@ -282,8 +269,6 @@ export class ClaimedRewardControllerBase {
               id: true,
             },
           },
-
-          userId: true,
         },
       });
     } catch (error) {

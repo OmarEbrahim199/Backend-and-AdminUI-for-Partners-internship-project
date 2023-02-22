@@ -18,11 +18,9 @@ export const ClaimedRewardEdit = (props: EditProps): React.ReactElement => {
         <ReferenceInput source="reward.id" reference="Reward" label="Reward">
           <SelectInput optionText={RewardTitle} />
         </ReferenceInput>
-        <TextInput label="rewardId" source="rewardId" />
         <ReferenceInput source="user.id" reference="User" label="user">
           <SelectInput optionText={UserTitle} />
         </ReferenceInput>
-        <TextInput label="userId" source="userId" />
       </SimpleForm>
     </Edit>
   );
