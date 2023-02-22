@@ -30,9 +30,6 @@ import { Reward } from "./Reward";
 import { ClaimedRewardFindManyArgs } from "../../claimedReward/base/ClaimedRewardFindManyArgs";
 import { ClaimedReward } from "../../claimedReward/base/ClaimedReward";
 import { ClaimedRewardWhereUniqueInput } from "../../claimedReward/base/ClaimedRewardWhereUniqueInput";
-import { FavouriteRewardFindManyArgs } from "../../favouriteReward/base/FavouriteRewardFindManyArgs";
-import { FavouriteReward } from "../../favouriteReward/base/FavouriteReward";
-import { FavouriteRewardWhereUniqueInput } from "../../favouriteReward/base/FavouriteRewardWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -429,117 +426,6 @@ export class RewardControllerBase {
   ): Promise<void> {
     const data = {
       claimedRewards: {
-        disconnect: body,
-      },
-    };
-    await this.service.update({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @common.Get("/:id/favouriteRewards")
-  @ApiNestedQuery(FavouriteRewardFindManyArgs)
-  @nestAccessControl.UseRoles({
-    resource: "FavouriteReward",
-    action: "read",
-    possession: "any",
-  })
-  async findManyFavouriteRewards(
-    @common.Req() request: Request,
-    @common.Param() params: RewardWhereUniqueInput
-  ): Promise<FavouriteReward[]> {
-    const query = plainToClass(FavouriteRewardFindManyArgs, request.query);
-    const results = await this.service.findFavouriteRewards(params.id, {
-      ...query,
-      select: {
-        createdAt: true,
-        id: true,
-
-        reward: {
-          select: {
-            id: true,
-          },
-        },
-
-        rewardId: true,
-        updatedAt: true,
-
-        user: {
-          select: {
-            id: true,
-          },
-        },
-
-        userId: true,
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/favouriteRewards")
-  @nestAccessControl.UseRoles({
-    resource: "Reward",
-    action: "update",
-    possession: "any",
-  })
-  async connectFavouriteRewards(
-    @common.Param() params: RewardWhereUniqueInput,
-    @common.Body() body: FavouriteRewardWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      favouriteRewards: {
-        connect: body,
-      },
-    };
-    await this.service.update({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/favouriteRewards")
-  @nestAccessControl.UseRoles({
-    resource: "Reward",
-    action: "update",
-    possession: "any",
-  })
-  async updateFavouriteRewards(
-    @common.Param() params: RewardWhereUniqueInput,
-    @common.Body() body: FavouriteRewardWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      favouriteRewards: {
-        set: body,
-      },
-    };
-    await this.service.update({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/favouriteRewards")
-  @nestAccessControl.UseRoles({
-    resource: "Reward",
-    action: "update",
-    possession: "any",
-  })
-  async disconnectFavouriteRewards(
-    @common.Param() params: RewardWhereUniqueInput,
-    @common.Body() body: FavouriteRewardWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      favouriteRewards: {
         disconnect: body,
       },
     };

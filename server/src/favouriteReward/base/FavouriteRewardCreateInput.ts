@@ -11,25 +11,12 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { RewardWhereUniqueInput } from "../../reward/base/RewardWhereUniqueInput";
-import { ValidateNested, IsOptional, IsString } from "class-validator";
-import { Type } from "class-transformer";
+import { IsString, IsOptional, ValidateNested } from "class-validator";
 import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
+import { Type } from "class-transformer";
 
 @InputType()
 class FavouriteRewardCreateInput {
-  @ApiProperty({
-    required: false,
-    type: () => RewardWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => RewardWhereUniqueInput)
-  @IsOptional()
-  @Field(() => RewardWhereUniqueInput, {
-    nullable: true,
-  })
-  reward?: RewardWhereUniqueInput | null;
-
   @ApiProperty({
     required: false,
     type: String,
@@ -52,17 +39,6 @@ class FavouriteRewardCreateInput {
     nullable: true,
   })
   user?: UserWhereUniqueInput | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  userId?: string | null;
 }
 
 export { FavouriteRewardCreateInput as FavouriteRewardCreateInput };

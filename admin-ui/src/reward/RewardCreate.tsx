@@ -14,7 +14,6 @@ import {
 } from "react-admin";
 
 import { ClaimedRewardTitle } from "../claimedReward/ClaimedRewardTitle";
-import { FavouriteRewardTitle } from "../favouriteReward/FavouriteRewardTitle";
 import { OrganisationTitle } from "../organisation/OrganisationTitle";
 import { RewardImageTitle } from "../rewardImage/RewardImageTitle";
 
@@ -35,14 +34,6 @@ export const RewardCreate = (props: CreateProps): React.ReactElement => {
         <TextInput label="description" multiline source="description" />
         <NumberInput step={1} label="discount" source="discount" />
         <DateTimeInput label="expirationDate" source="expirationDate" />
-        <ReferenceArrayInput
-          source="favouriteRewards"
-          reference="FavouriteReward"
-          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
-          format={(value: any) => value && value.map((v: any) => v.id)}
-        >
-          <SelectArrayInput optionText={FavouriteRewardTitle} />
-        </ReferenceArrayInput>
         <TextInput label="latitude" source="latitude" />
         <TextInput label="longitude" source="longitude" />
         <NumberInput label="miles" source="miles" />

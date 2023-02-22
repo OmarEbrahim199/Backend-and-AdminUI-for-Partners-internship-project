@@ -1,5 +1,4 @@
 import { ClaimedRewardCreateNestedManyWithoutRewardsInput } from "./ClaimedRewardCreateNestedManyWithoutRewardsInput";
-import { FavouriteRewardCreateNestedManyWithoutRewardsInput } from "./FavouriteRewardCreateNestedManyWithoutRewardsInput";
 import { OrganisationWhereUniqueInput } from "../organisation/OrganisationWhereUniqueInput";
 import { RewardImageWhereUniqueInput } from "../rewardImage/RewardImageWhereUniqueInput";
 
@@ -10,7 +9,6 @@ export type RewardCreateInput = {
   description?: string | null;
   discount?: number | null;
   expirationDate?: Date | null;
-  favouriteRewards?: FavouriteRewardCreateNestedManyWithoutRewardsInput;
   latitude?: string | null;
   longitude?: string | null;
   miles?: number | null;

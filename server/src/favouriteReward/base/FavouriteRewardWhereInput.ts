@@ -14,7 +14,6 @@ import { ApiProperty } from "@nestjs/swagger";
 import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
-import { RewardWhereUniqueInput } from "../../reward/base/RewardWhereUniqueInput";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
 
@@ -30,18 +29,6 @@ class FavouriteRewardWhereInput {
     nullable: true,
   })
   id?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => RewardWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => RewardWhereUniqueInput)
-  @IsOptional()
-  @Field(() => RewardWhereUniqueInput, {
-    nullable: true,
-  })
-  reward?: RewardWhereUniqueInput;
 
   @ApiProperty({
     required: false,
@@ -65,17 +52,6 @@ class FavouriteRewardWhereInput {
     nullable: true,
   })
   user?: UserWhereUniqueInput;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  userId?: StringNullableFilter;
 }
 
 export { FavouriteRewardWhereInput as FavouriteRewardWhereInput };

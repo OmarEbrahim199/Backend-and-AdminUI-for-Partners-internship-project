@@ -10,7 +10,7 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-import { Prisma, FavouriteReward, Reward, User } from "@prisma/client";
+import { Prisma, FavouriteReward, User } from "@prisma/client";
 
 export class FavouriteRewardServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -45,14 +45,6 @@ export class FavouriteRewardServiceBase {
     args: Prisma.SelectSubset<T, Prisma.FavouriteRewardDeleteArgs>
   ): Promise<FavouriteReward> {
     return this.prisma.favouriteReward.delete(args);
-  }
-
-  async getReward(parentId: string): Promise<Reward | null> {
-    return this.prisma.favouriteReward
-      .findUnique({
-        where: { id: parentId },
-      })
-      .reward();
   }
 
   async getUser(parentId: string): Promise<User | null> {
