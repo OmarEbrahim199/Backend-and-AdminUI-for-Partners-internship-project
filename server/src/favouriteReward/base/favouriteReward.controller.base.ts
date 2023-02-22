@@ -53,12 +53,6 @@ export class FavouriteRewardControllerBase {
       data: {
         ...data,
 
-        reward: data.reward
-          ? {
-              connect: data.reward,
-            }
-          : undefined,
-
         user: data.user
           ? {
               connect: data.user,
@@ -68,13 +62,6 @@ export class FavouriteRewardControllerBase {
       select: {
         createdAt: true,
         id: true,
-
-        reward: {
-          select: {
-            id: true,
-          },
-        },
-
         rewardId: true,
         updatedAt: true,
 
@@ -83,8 +70,6 @@ export class FavouriteRewardControllerBase {
             id: true,
           },
         },
-
-        userId: true,
       },
     });
   }
@@ -108,13 +93,6 @@ export class FavouriteRewardControllerBase {
       select: {
         createdAt: true,
         id: true,
-
-        reward: {
-          select: {
-            id: true,
-          },
-        },
-
         rewardId: true,
         updatedAt: true,
 
@@ -123,8 +101,6 @@ export class FavouriteRewardControllerBase {
             id: true,
           },
         },
-
-        userId: true,
       },
     });
   }
@@ -149,13 +125,6 @@ export class FavouriteRewardControllerBase {
       select: {
         createdAt: true,
         id: true,
-
-        reward: {
-          select: {
-            id: true,
-          },
-        },
-
         rewardId: true,
         updatedAt: true,
 
@@ -164,8 +133,6 @@ export class FavouriteRewardControllerBase {
             id: true,
           },
         },
-
-        userId: true,
       },
     });
     if (result === null) {
@@ -198,12 +165,6 @@ export class FavouriteRewardControllerBase {
         data: {
           ...data,
 
-          reward: data.reward
-            ? {
-                connect: data.reward,
-              }
-            : undefined,
-
           user: data.user
             ? {
                 connect: data.user,
@@ -213,13 +174,6 @@ export class FavouriteRewardControllerBase {
         select: {
           createdAt: true,
           id: true,
-
-          reward: {
-            select: {
-              id: true,
-            },
-          },
-
           rewardId: true,
           updatedAt: true,
 
@@ -228,8 +182,6 @@ export class FavouriteRewardControllerBase {
               id: true,
             },
           },
-
-          userId: true,
         },
       });
     } catch (error) {
@@ -262,13 +214,6 @@ export class FavouriteRewardControllerBase {
         select: {
           createdAt: true,
           id: true,
-
-          reward: {
-            select: {
-              id: true,
-            },
-          },
-
           rewardId: true,
           updatedAt: true,
 
@@ -277,8 +222,6 @@ export class FavouriteRewardControllerBase {
               id: true,
             },
           },
-
-          userId: true,
         },
       });
     } catch (error) {

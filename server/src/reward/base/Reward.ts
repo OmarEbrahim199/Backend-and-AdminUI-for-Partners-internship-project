@@ -21,7 +21,6 @@ import {
 } from "class-validator";
 import { ClaimedReward } from "../../claimedReward/base/ClaimedReward";
 import { Type } from "class-transformer";
-import { FavouriteReward } from "../../favouriteReward/base/FavouriteReward";
 import { Organisation } from "../../organisation/base/Organisation";
 import { RewardImage } from "../../rewardImage/base/RewardImage";
 
@@ -98,15 +97,6 @@ class Reward {
     nullable: true,
   })
   expirationDate!: Date | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => [FavouriteReward],
-  })
-  @ValidateNested()
-  @Type(() => FavouriteReward)
-  @IsOptional()
-  favouriteRewards?: Array<FavouriteReward>;
 
   @ApiProperty({
     required: true,

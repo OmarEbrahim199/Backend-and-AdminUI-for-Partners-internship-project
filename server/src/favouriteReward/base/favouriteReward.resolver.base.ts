@@ -25,7 +25,6 @@ import { DeleteFavouriteRewardArgs } from "./DeleteFavouriteRewardArgs";
 import { FavouriteRewardFindManyArgs } from "./FavouriteRewardFindManyArgs";
 import { FavouriteRewardFindUniqueArgs } from "./FavouriteRewardFindUniqueArgs";
 import { FavouriteReward } from "./FavouriteReward";
-import { Reward } from "../../reward/base/Reward";
 import { User } from "../../user/base/User";
 import { FavouriteRewardService } from "../favouriteReward.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
@@ -100,12 +99,6 @@ export class FavouriteRewardResolverBase {
       data: {
         ...args.data,
 
-        reward: args.data.reward
-          ? {
-              connect: args.data.reward,
-            }
-          : undefined,
-
         user: args.data.user
           ? {
               connect: args.data.user,
@@ -130,12 +123,6 @@ export class FavouriteRewardResolverBase {
         ...args,
         data: {
           ...args.data,
-
-          reward: args.data.reward
-            ? {
-                connect: args.data.reward,
-              }
-            : undefined,
 
           user: args.data.user
             ? {
@@ -173,24 +160,6 @@ export class FavouriteRewardResolverBase {
       }
       throw error;
     }
-  }
-
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => Reward, { nullable: true })
-  @nestAccessControl.UseRoles({
-    resource: "Reward",
-    action: "read",
-    possession: "any",
-  })
-  async reward(
-    @graphql.Parent() parent: FavouriteReward
-  ): Promise<Reward | null> {
-    const result = await this.service.getReward(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return result;
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)

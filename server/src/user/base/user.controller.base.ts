@@ -334,13 +334,6 @@ export class UserControllerBase {
       select: {
         createdAt: true,
         id: true,
-
-        reward: {
-          select: {
-            id: true,
-          },
-        },
-
         rewardId: true,
         updatedAt: true,
 
@@ -349,8 +342,6 @@ export class UserControllerBase {
             id: true,
           },
         },
-
-        userId: true,
       },
     });
     if (results === null) {

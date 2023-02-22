@@ -21,7 +21,6 @@ import {
 } from "class-validator";
 import { ClaimedRewardCreateNestedManyWithoutRewardsInput } from "./ClaimedRewardCreateNestedManyWithoutRewardsInput";
 import { Type } from "class-transformer";
-import { FavouriteRewardCreateNestedManyWithoutRewardsInput } from "./FavouriteRewardCreateNestedManyWithoutRewardsInput";
 import { OrganisationWhereUniqueInput } from "../../organisation/base/OrganisationWhereUniqueInput";
 import { RewardImageWhereUniqueInput } from "../../rewardImage/base/RewardImageWhereUniqueInput";
 
@@ -93,18 +92,6 @@ class RewardCreateInput {
     nullable: true,
   })
   expirationDate?: Date | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => FavouriteRewardCreateNestedManyWithoutRewardsInput,
-  })
-  @ValidateNested()
-  @Type(() => FavouriteRewardCreateNestedManyWithoutRewardsInput)
-  @IsOptional()
-  @Field(() => FavouriteRewardCreateNestedManyWithoutRewardsInput, {
-    nullable: true,
-  })
-  favouriteRewards?: FavouriteRewardCreateNestedManyWithoutRewardsInput;
 
   @ApiProperty({
     required: false,

@@ -14,7 +14,6 @@ import {
   Prisma,
   Reward,
   ClaimedReward,
-  FavouriteReward,
   Organisation,
   RewardImage,
 } from "@prisma/client";
@@ -63,17 +62,6 @@ export class RewardServiceBase {
         where: { id: parentId },
       })
       .claimedRewards(args);
-  }
-
-  async findFavouriteRewards(
-    parentId: string,
-    args: Prisma.FavouriteRewardFindManyArgs
-  ): Promise<FavouriteReward[]> {
-    return this.prisma.reward
-      .findUniqueOrThrow({
-        where: { id: parentId },
-      })
-      .favouriteRewards(args);
   }
 
   async getOrganisation(parentId: string): Promise<Organisation | null> {

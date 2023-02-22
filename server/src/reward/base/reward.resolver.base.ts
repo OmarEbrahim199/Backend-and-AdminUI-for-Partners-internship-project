@@ -27,8 +27,6 @@ import { RewardFindUniqueArgs } from "./RewardFindUniqueArgs";
 import { Reward } from "./Reward";
 import { ClaimedRewardFindManyArgs } from "../../claimedReward/base/ClaimedRewardFindManyArgs";
 import { ClaimedReward } from "../../claimedReward/base/ClaimedReward";
-import { FavouriteRewardFindManyArgs } from "../../favouriteReward/base/FavouriteRewardFindManyArgs";
-import { FavouriteReward } from "../../favouriteReward/base/FavouriteReward";
 import { Organisation } from "../../organisation/base/Organisation";
 import { RewardImage } from "../../rewardImage/base/RewardImage";
 import { RewardService } from "../reward.service";
@@ -187,26 +185,6 @@ export class RewardResolverBase {
     @graphql.Args() args: ClaimedRewardFindManyArgs
   ): Promise<ClaimedReward[]> {
     const results = await this.service.findClaimedRewards(parent.id, args);
-
-    if (!results) {
-      return [];
-    }
-
-    return results;
-  }
-
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => [FavouriteReward])
-  @nestAccessControl.UseRoles({
-    resource: "FavouriteReward",
-    action: "read",
-    possession: "any",
-  })
-  async favouriteRewards(
-    @graphql.Parent() parent: Reward,
-    @graphql.Args() args: FavouriteRewardFindManyArgs
-  ): Promise<FavouriteReward[]> {
-    const results = await this.service.findFavouriteRewards(parent.id, args);
 
     if (!results) {
       return [];

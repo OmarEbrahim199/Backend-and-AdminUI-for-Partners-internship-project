@@ -1,5 +1,4 @@
 import { ClaimedReward } from "../claimedReward/ClaimedReward";
-import { FavouriteReward } from "../favouriteReward/FavouriteReward";
 import { Organisation } from "../organisation/Organisation";
 import { RewardImage } from "../rewardImage/RewardImage";
 
@@ -11,7 +10,6 @@ export type Reward = {
   description: string | null;
   discount: number | null;
   expirationDate: Date | null;
-  favouriteRewards?: Array<FavouriteReward>;
   id: string;
   latitude: string | null;
   longitude: string | null;

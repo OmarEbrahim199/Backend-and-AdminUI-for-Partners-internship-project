@@ -17,7 +17,6 @@ import { IsOptional, ValidateNested } from "class-validator";
 import { ClaimedRewardListRelationFilter } from "../../claimedReward/base/ClaimedRewardListRelationFilter";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
-import { FavouriteRewardListRelationFilter } from "../../favouriteReward/base/FavouriteRewardListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 import { OrganisationWhereUniqueInput } from "../../organisation/base/OrganisationWhereUniqueInput";
@@ -91,18 +90,6 @@ class RewardWhereInput {
     nullable: true,
   })
   expirationDate?: DateTimeNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => FavouriteRewardListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => FavouriteRewardListRelationFilter)
-  @IsOptional()
-  @Field(() => FavouriteRewardListRelationFilter, {
-    nullable: true,
-  })
-  favouriteRewards?: FavouriteRewardListRelationFilter;
 
   @ApiProperty({
     required: false,

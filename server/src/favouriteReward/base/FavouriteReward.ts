@@ -11,9 +11,8 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString, ValidateNested, IsOptional } from "class-validator";
+import { IsDate, IsString, IsOptional, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
-import { Reward } from "../../reward/base/Reward";
 import { User } from "../../user/base/User";
 
 @ObjectType()
@@ -33,15 +32,6 @@ class FavouriteReward {
   @IsString()
   @Field(() => String)
   id!: string;
-
-  @ApiProperty({
-    required: false,
-    type: () => Reward,
-  })
-  @ValidateNested()
-  @Type(() => Reward)
-  @IsOptional()
-  reward?: Reward | null;
 
   @ApiProperty({
     required: false,
@@ -70,17 +60,6 @@ class FavouriteReward {
   @Type(() => User)
   @IsOptional()
   user?: User | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  userId!: string | null;
 }
 
 export { FavouriteReward as FavouriteReward };
