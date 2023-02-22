@@ -55,17 +55,6 @@ class ClaimedReward {
   reward?: Reward | null;
 
   @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  rewardId!: string | null;
-
-  @ApiProperty({
     required: true,
   })
   @IsDate()
@@ -81,17 +70,6 @@ class ClaimedReward {
   @Type(() => User)
   @IsOptional()
   user?: User | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  userId!: string | null;
 }
 
 export { ClaimedReward as ClaimedReward };

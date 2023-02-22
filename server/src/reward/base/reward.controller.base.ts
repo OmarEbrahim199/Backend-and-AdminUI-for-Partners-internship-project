@@ -356,7 +356,6 @@ export class RewardControllerBase {
           },
         },
 
-        rewardId: true,
         updatedAt: true,
 
         user: {
@@ -364,8 +363,6 @@ export class RewardControllerBase {
             id: true,
           },
         },
-
-        userId: true,
       },
     });
     if (results === null) {

@@ -233,7 +233,6 @@ export class UserControllerBase {
           },
         },
 
-        rewardId: true,
         updatedAt: true,
 
         user: {
@@ -241,8 +240,6 @@ export class UserControllerBase {
             id: true,
           },
         },
-
-        userId: true,
       },
     });
     if (results === null) {

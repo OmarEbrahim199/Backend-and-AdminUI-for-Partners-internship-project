@@ -43,17 +43,6 @@ class ClaimedRewardUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  rewardId?: string | null;
-
-  @ApiProperty({
-    required: false,
     type: () => UserWhereUniqueInput,
   })
   @ValidateNested()
@@ -63,17 +52,6 @@ class ClaimedRewardUpdateInput {
     nullable: true,
   })
   user?: UserWhereUniqueInput | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  userId?: string | null;
 }
 
 export { ClaimedRewardUpdateInput as ClaimedRewardUpdateInput };

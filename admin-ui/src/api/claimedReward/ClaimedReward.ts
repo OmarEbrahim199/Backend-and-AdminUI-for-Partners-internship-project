@@ -6,8 +6,6 @@ export type ClaimedReward = {
   id: string;
   qrCodeUrl: string | null;
   reward?: Reward | null;
-  rewardId: string | null;
   updatedAt: Date;
   user?: User | null;
-  userId: string | null;
 };
