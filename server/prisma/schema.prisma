@@ -1,0 +1,91 @@
+datasource postgres {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  claimedRewards   ClaimedReward[]
+  createdAt        DateTime          @default(now())
+  favouriteRewards FavouriteReward[]
+  firstName        String?
+  id               String            @id @default(cuid())
+  lastName         String?
+  password         String
+  roles            Json
+  updatedAt        DateTime          @updatedAt
+  username         String            @unique
+}
+
+model Reward {
+  city             String?
+  claimedRewards   ClaimedReward[]
+  country          String?
+  createdAt        DateTime          @default(now())
+  description      String?
+  discount         Int?
+  expirationDate   DateTime?
+  favouriteRewards FavouriteReward[]
+  id               String            @id @default(cuid())
+  latitude         String?
+  longitude        String?
+  miles            Float?
+  organisation     Organisation?     @relation(fields: [organisationId], references: [id])
+  organisationId   String?
+  rewardImage      RewardImage?      @relation(fields: [rewardImageId], references: [id])
+  rewardImageId    String?
+  title            String?
+  totalCount       String?
+  updatedAt        DateTime          @updatedAt
+}
+
+model ClaimedReward {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  qrCodeUrl String?
+  reward    Reward?  @relation(fields: [rewardId], references: [id])
+  rewardId  String?
+  rewardId  String?
+  updatedAt DateTime @updatedAt
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+  userId    String?
+}
+
+model FavouriteReward {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  reward    Reward?  @relation(fields: [rewardId], references: [id])
+  rewardId  String?
+  rewardId  String?
+  updatedAt DateTime @updatedAt
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+  userId    String?
+}
+
+model Organisation {
+  createdAt      DateTime @default(now())
+  id             String   @id @default(cuid())
+  largeImageUrl  String?
+  mediumImageUrl String?
+  name           String?
+  rewards        Reward[]
+  smallImageUrl  String?
+  updatedAt      DateTime @updatedAt
+  website        String?
+}
+
+model RewardImage {
+  createdAt      DateTime @default(now())
+  id             String   @id @default(cuid())
+  largeImageUrl  String?
+  mediumImageUrl String?
+  rewardId       String?
+  rewards        Reward[]
+  smallImageUrl  String?
+  updatedAt      DateTime @updatedAt
+}
