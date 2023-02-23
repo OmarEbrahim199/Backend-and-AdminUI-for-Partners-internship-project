@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { ClaimedRewardListRelationFilter } from "../../claimedReward/base/ClaimedRewardListRelationFilter";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { CompanyDetailListRelationFilter } from "../../companyDetail/base/CompanyDetailListRelationFilter";
 import { FavouriteRewardListRelationFilter } from "../../favouriteReward/base/FavouriteRewardListRelationFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
@@ -31,6 +32,18 @@ class UserWhereInput {
     nullable: true,
   })
   claimedRewards?: ClaimedRewardListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => CompanyDetailListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => CompanyDetailListRelationFilter)
+  @IsOptional()
+  @Field(() => CompanyDetailListRelationFilter, {
+    nullable: true,
+  })
+  companyDetails?: CompanyDetailListRelationFilter;
 
   @ApiProperty({
     required: false,

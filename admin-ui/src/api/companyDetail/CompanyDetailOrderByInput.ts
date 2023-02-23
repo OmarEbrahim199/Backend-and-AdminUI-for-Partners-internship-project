@@ -13,4 +13,5 @@ export type CompanyDetailOrderByInput = {
   logo?: SortOrder;
   shortIntroductionToTheCompany?: SortOrder;
   updatedAt?: SortOrder;
+  userId?: SortOrder;
 };

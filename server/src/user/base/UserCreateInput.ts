@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { ClaimedRewardCreateNestedManyWithoutUsersInput } from "./ClaimedRewardCreateNestedManyWithoutUsersInput";
 import { ValidateNested, IsOptional, IsString, IsJSON } from "class-validator";
 import { Type } from "class-transformer";
+import { CompanyDetailCreateNestedManyWithoutUsersInput } from "./CompanyDetailCreateNestedManyWithoutUsersInput";
 import { FavouriteRewardCreateNestedManyWithoutUsersInput } from "./FavouriteRewardCreateNestedManyWithoutUsersInput";
 import { GraphQLJSON } from "graphql-type-json";
 import { InputJsonValue } from "../../types";
@@ -31,6 +32,18 @@ class UserCreateInput {
     nullable: true,
   })
   claimedRewards?: ClaimedRewardCreateNestedManyWithoutUsersInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => CompanyDetailCreateNestedManyWithoutUsersInput,
+  })
+  @ValidateNested()
+  @Type(() => CompanyDetailCreateNestedManyWithoutUsersInput)
+  @IsOptional()
+  @Field(() => CompanyDetailCreateNestedManyWithoutUsersInput, {
+    nullable: true,
+  })
+  companyDetails?: CompanyDetailCreateNestedManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,
