@@ -29,6 +29,10 @@ import { RewardImageList } from "./rewardImage/RewardImageList";
 import { RewardImageCreate } from "./rewardImage/RewardImageCreate";
 import { RewardImageEdit } from "./rewardImage/RewardImageEdit";
 import { RewardImageShow } from "./rewardImage/RewardImageShow";
+import { CompanyDetailList } from "./companyDetail/CompanyDetailList";
+import { CompanyDetailCreate } from "./companyDetail/CompanyDetailCreate";
+import { CompanyDetailEdit } from "./companyDetail/CompanyDetailEdit";
+import { CompanyDetailShow } from "./companyDetail/CompanyDetailShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -96,6 +100,13 @@ const App = (): React.ReactElement => {
           edit={RewardImageEdit}
           create={RewardImageCreate}
           show={RewardImageShow}
+        />
+        <Resource
+          name="CompanyDetail"
+          list={CompanyDetailList}
+          edit={CompanyDetailEdit}
+          create={CompanyDetailCreate}
+          show={CompanyDetailShow}
         />
       </Admin>
     </div>
