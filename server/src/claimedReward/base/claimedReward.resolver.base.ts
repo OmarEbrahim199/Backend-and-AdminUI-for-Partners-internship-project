@@ -29,7 +29,7 @@ import { Reward } from "../../reward/base/Reward";
 import { User } from "../../user/base/User";
 import { ClaimedRewardService } from "../claimedReward.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
-@graphql.Resolver(() => Claimedreward)
+@graphql.Resolver(() => ClaimedReward)
 export class ClaimedRewardResolverBase {
   constructor(
     protected readonly service: ClaimedRewardService,

@@ -29,7 +29,7 @@ import { RewardFindManyArgs } from "../../reward/base/RewardFindManyArgs";
 import { Reward } from "../../reward/base/Reward";
 import { RewardImageService } from "../rewardImage.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
-@graphql.Resolver(() => Rewardimage)
+@graphql.Resolver(() => RewardImage)
 export class RewardImageResolverBase {
   constructor(
     protected readonly service: RewardImageService,

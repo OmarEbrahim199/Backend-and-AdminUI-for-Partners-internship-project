@@ -27,7 +27,7 @@ import { CompanyDetailFindUniqueArgs } from "./CompanyDetailFindUniqueArgs";
 import { CompanyDetail } from "./CompanyDetail";
 import { CompanyDetailService } from "../companyDetail.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
-@graphql.Resolver(() => Companydetail)
+@graphql.Resolver(() => CompanyDetail)
 export class CompanyDetailResolverBase {
   constructor(
     protected readonly service: CompanyDetailService,

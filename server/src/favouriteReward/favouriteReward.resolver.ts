@@ -8,7 +8,7 @@ import { FavouriteReward } from "./base/FavouriteReward";
 import { FavouriteRewardService } from "./favouriteReward.service";
 
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
-@graphql.Resolver(() => Favouritereward)
+@graphql.Resolver(() => FavouriteReward)
 export class FavouriteRewardResolver extends FavouriteRewardResolverBase {
   constructor(
     protected readonly service: FavouriteRewardService,

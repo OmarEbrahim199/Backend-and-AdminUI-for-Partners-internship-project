@@ -8,7 +8,7 @@ import { CompanyDetail } from "./base/CompanyDetail";
 import { CompanyDetailService } from "./companyDetail.service";
 
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
-@graphql.Resolver(() => Companydetail)
+@graphql.Resolver(() => CompanyDetail)
 export class CompanyDetailResolver extends CompanyDetailResolverBase {
   constructor(
     protected readonly service: CompanyDetailService,
