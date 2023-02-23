@@ -20,6 +20,7 @@ import {
   IsJSON,
 } from "class-validator";
 import { Type } from "class-transformer";
+import { CompanyDetail } from "../../companyDetail/base/CompanyDetail";
 import { FavouriteReward } from "../../favouriteReward/base/FavouriteReward";
 import { GraphQLJSON } from "graphql-type-json";
 import { JsonValue } from "type-fest";
@@ -34,6 +35,15 @@ class User {
   @Type(() => ClaimedReward)
   @IsOptional()
   claimedRewards?: Array<ClaimedReward>;
+
+  @ApiProperty({
+    required: false,
+    type: () => [CompanyDetail],
+  })
+  @ValidateNested()
+  @Type(() => CompanyDetail)
+  @IsOptional()
+  companyDetails?: Array<CompanyDetail>;
 
   @ApiProperty({
     required: true,

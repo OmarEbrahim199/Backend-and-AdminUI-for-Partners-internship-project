@@ -25,6 +25,7 @@ import { DeleteCompanyDetailArgs } from "./DeleteCompanyDetailArgs";
 import { CompanyDetailFindManyArgs } from "./CompanyDetailFindManyArgs";
 import { CompanyDetailFindUniqueArgs } from "./CompanyDetailFindUniqueArgs";
 import { CompanyDetail } from "./CompanyDetail";
+import { User } from "../../user/base/User";
 import { CompanyDetailService } from "../companyDetail.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => Companydetail)
@@ -95,7 +96,15 @@ export class CompanyDetailResolverBase {
   ): Promise<CompanyDetail> {
     return await this.service.create({
       ...args,
-      data: args.data,
+      data: {
+        ...args.data,
+
+        user: args.data.user
+          ? {
+              connect: args.data.user,
+            }
+          : undefined,
+      },
     });
   }
 
@@ -112,7 +121,15 @@ export class CompanyDetailResolverBase {
     try {
       return await this.service.update({
         ...args,
-        data: args.data,
+        data: {
+          ...args.data,
+
+          user: args.data.user
+            ? {
+                connect: args.data.user,
+              }
+            : undefined,
+        },
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -143,5 +160,21 @@ export class CompanyDetailResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => User, { nullable: true })
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "read",
+    possession: "any",
+  })
+  async user(@graphql.Parent() parent: CompanyDetail): Promise<User | null> {
+    const result = await this.service.getUser(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

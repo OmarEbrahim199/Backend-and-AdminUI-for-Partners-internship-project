@@ -50,7 +50,15 @@ export class CompanyDetailControllerBase {
     @common.Body() data: CompanyDetailCreateInput
   ): Promise<CompanyDetail> {
     return await this.service.create({
-      data: data,
+      data: {
+        ...data,
+
+        user: data.user
+          ? {
+              connect: data.user,
+            }
+          : undefined,
+      },
       select: {
         businessAddress: true,
         businessCategory: true,
@@ -64,6 +72,12 @@ export class CompanyDetailControllerBase {
         logo: true,
         shortIntroductionToTheCompany: true,
         updatedAt: true,
+
+        user: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
   }
@@ -97,6 +111,12 @@ export class CompanyDetailControllerBase {
         logo: true,
         shortIntroductionToTheCompany: true,
         updatedAt: true,
+
+        user: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
   }
@@ -131,6 +151,12 @@ export class CompanyDetailControllerBase {
         logo: true,
         shortIntroductionToTheCompany: true,
         updatedAt: true,
+
+        user: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
     if (result === null) {
@@ -160,7 +186,15 @@ export class CompanyDetailControllerBase {
     try {
       return await this.service.update({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          user: data.user
+            ? {
+                connect: data.user,
+              }
+            : undefined,
+        },
         select: {
           businessAddress: true,
           businessCategory: true,
@@ -174,6 +208,12 @@ export class CompanyDetailControllerBase {
           logo: true,
           shortIntroductionToTheCompany: true,
           updatedAt: true,
+
+          user: {
+            select: {
+              id: true,
+            },
+          },
         },
       });
     } catch (error) {
@@ -216,6 +256,12 @@ export class CompanyDetailControllerBase {
           logo: true,
           shortIntroductionToTheCompany: true,
           updatedAt: true,
+
+          user: {
+            select: {
+              id: true,
+            },
+          },
         },
       });
     } catch (error) {

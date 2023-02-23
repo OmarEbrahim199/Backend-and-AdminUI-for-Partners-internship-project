@@ -1,3 +1,5 @@
+import { User } from "../user/User";
+
 export type CompanyDetail = {
   businessAddress: string;
   businessCategory: string | null;
@@ -11,4 +13,5 @@ export type CompanyDetail = {
   logo: string | null;
   shortIntroductionToTheCompany: string | null;
   updatedAt: Date;
+  user?: User | null;
 };

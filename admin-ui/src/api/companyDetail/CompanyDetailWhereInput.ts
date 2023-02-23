@@ -1,5 +1,6 @@
 import { StringFilter } from "../../util/StringFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { UserWhereUniqueInput } from "../user/UserWhereUniqueInput";
 
 export type CompanyDetailWhereInput = {
   businessAddress?: StringFilter;
@@ -12,4 +13,5 @@ export type CompanyDetailWhereInput = {
   id?: StringFilter;
   logo?: StringNullableFilter;
   shortIntroductionToTheCompany?: StringNullableFilter;
+  user?: UserWhereUniqueInput;
 };

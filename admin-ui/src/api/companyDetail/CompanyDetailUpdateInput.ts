@@ -1,3 +1,5 @@
+import { UserWhereUniqueInput } from "../user/UserWhereUniqueInput";
+
 export type CompanyDetailUpdateInput = {
   businessAddress?: string;
   businessCategory?: string | null;
@@ -8,4 +10,5 @@ export type CompanyDetailUpdateInput = {
   cvrNumber?: string;
   logo?: string | null;
   shortIntroductionToTheCompany?: string | null;
+  user?: UserWhereUniqueInput | null;
 };

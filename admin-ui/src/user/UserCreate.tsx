@@ -11,6 +11,7 @@ import {
 } from "react-admin";
 
 import { ClaimedRewardTitle } from "../claimedReward/ClaimedRewardTitle";
+import { CompanyDetailTitle } from "../companyDetail/CompanyDetailTitle";
 import { FavouriteRewardTitle } from "../favouriteReward/FavouriteRewardTitle";
 import { ROLES_OPTIONS } from "../user/RolesOptions";
 
@@ -25,6 +26,14 @@ export const UserCreate = (props: CreateProps): React.ReactElement => {
           format={(value: any) => value && value.map((v: any) => v.id)}
         >
           <SelectArrayInput optionText={ClaimedRewardTitle} />
+        </ReferenceArrayInput>
+        <ReferenceArrayInput
+          source="companyDetails"
+          reference="CompanyDetail"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={CompanyDetailTitle} />
         </ReferenceArrayInput>
         <ReferenceArrayInput
           source="favouriteRewards"
