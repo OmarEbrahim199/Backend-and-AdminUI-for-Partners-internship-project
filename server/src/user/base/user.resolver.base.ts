@@ -27,6 +27,8 @@ import { UserFindUniqueArgs } from "./UserFindUniqueArgs";
 import { User } from "./User";
 import { ClaimedRewardFindManyArgs } from "../../claimedReward/base/ClaimedRewardFindManyArgs";
 import { ClaimedReward } from "../../claimedReward/base/ClaimedReward";
+import { CompanyDetailFindManyArgs } from "../../companyDetail/base/CompanyDetailFindManyArgs";
+import { CompanyDetail } from "../../companyDetail/base/CompanyDetail";
 import { FavouriteRewardFindManyArgs } from "../../favouriteReward/base/FavouriteRewardFindManyArgs";
 import { FavouriteReward } from "../../favouriteReward/base/FavouriteReward";
 import { UserService } from "../user.service";
@@ -151,6 +153,26 @@ export class UserResolverBase {
     @graphql.Args() args: ClaimedRewardFindManyArgs
   ): Promise<ClaimedReward[]> {
     const results = await this.service.findClaimedRewards(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [CompanyDetail])
+  @nestAccessControl.UseRoles({
+    resource: "CompanyDetail",
+    action: "read",
+    possession: "any",
+  })
+  async companyDetails(
+    @graphql.Parent() parent: User,
+    @graphql.Args() args: CompanyDetailFindManyArgs
+  ): Promise<CompanyDetail[]> {
+    const results = await this.service.findCompanyDetails(parent.id, args);
 
     if (!results) {
       return [];

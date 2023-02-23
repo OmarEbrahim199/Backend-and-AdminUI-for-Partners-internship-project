@@ -10,7 +10,13 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-import { Prisma, User, ClaimedReward, FavouriteReward } from "@prisma/client";
+import {
+  Prisma,
+  User,
+  ClaimedReward,
+  CompanyDetail,
+  FavouriteReward,
+} from "@prisma/client";
 import { PasswordService } from "../../auth/password.service";
 import { transformStringFieldUpdateInput } from "../../prisma.util";
 
@@ -61,6 +67,17 @@ export class UserServiceBase {
         where: { id: parentId },
       })
       .claimedRewards(args);
+  }
+
+  async findCompanyDetails(
+    parentId: string,
+    args: Prisma.CompanyDetailFindManyArgs
+  ): Promise<CompanyDetail[]> {
+    return this.prisma.user
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .companyDetails(args);
   }
 
   async findFavouriteRewards(
