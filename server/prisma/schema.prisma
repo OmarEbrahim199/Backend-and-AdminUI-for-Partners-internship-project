@@ -83,3 +83,18 @@ model RewardImage {
   smallImageUrl  String?
   updatedAt      DateTime @updatedAt
 }
+
+model CompanyDetail {
+  businessAddress               String
+  businessCategory              String?
+  businessEmail                 String?
+  businessPhoneNumber           String?
+  companyName                   String
+  companyUrl                    String?
+  createdAt                     DateTime @default(now())
+  cvrNumber                     String
+  id                            String   @id @default(cuid())
+  logo                          String?
+  shortIntroductionToTheCompany String?
+  updatedAt                     DateTime @updatedAt
+}

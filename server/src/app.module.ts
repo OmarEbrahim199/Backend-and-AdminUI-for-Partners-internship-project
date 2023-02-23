@@ -7,6 +7,7 @@ import { ClaimedRewardModule } from "./claimedReward/claimedReward.module";
 import { FavouriteRewardModule } from "./favouriteReward/favouriteReward.module";
 import { OrganisationModule } from "./organisation/organisation.module";
 import { RewardImageModule } from "./rewardImage/rewardImage.module";
+import { CompanyDetailModule } from "./companyDetail/companyDetail.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -29,6 +30,7 @@ import { AuthModule } from "./auth/auth.module";
     FavouriteRewardModule,
     OrganisationModule,
     RewardImageModule,
+    CompanyDetailModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
