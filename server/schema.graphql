@@ -1,0 +1,644 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ClaimedReward {
+  createdAt: DateTime!
+  id: String!
+  qrCodeUrl: String
+  reward: Reward
+  updatedAt: DateTime!
+  user: User
+}
+
+input ClaimedRewardCreateInput {
+  qrCodeUrl: String
+  reward: RewardWhereUniqueInput
+  user: UserWhereUniqueInput
+}
+
+input ClaimedRewardCreateNestedManyWithoutRewardsInput {
+  connect: [ClaimedRewardWhereUniqueInput!]
+}
+
+input ClaimedRewardCreateNestedManyWithoutUsersInput {
+  connect: [ClaimedRewardWhereUniqueInput!]
+}
+
+input ClaimedRewardListRelationFilter {
+  every: ClaimedRewardWhereInput
+  none: ClaimedRewardWhereInput
+  some: ClaimedRewardWhereInput
+}
+
+input ClaimedRewardOrderByInput {
+  createdAt: SortOrder
+  id: SortOrder
+  qrCodeUrl: SortOrder
+  rewardId: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input ClaimedRewardUpdateInput {
+  qrCodeUrl: String
+  reward: RewardWhereUniqueInput
+  user: UserWhereUniqueInput
+}
+
+input ClaimedRewardUpdateManyWithoutRewardsInput {
+  connect: [ClaimedRewardWhereUniqueInput!]
+  disconnect: [ClaimedRewardWhereUniqueInput!]
+  set: [ClaimedRewardWhereUniqueInput!]
+}
+
+input ClaimedRewardUpdateManyWithoutUsersInput {
+  connect: [ClaimedRewardWhereUniqueInput!]
+  disconnect: [ClaimedRewardWhereUniqueInput!]
+  set: [ClaimedRewardWhereUniqueInput!]
+}
+
+input ClaimedRewardWhereInput {
+  id: StringFilter
+  qrCodeUrl: StringNullableFilter
+  reward: RewardWhereUniqueInput
+  user: UserWhereUniqueInput
+}
+
+input ClaimedRewardWhereUniqueInput {
+  id: String!
+}
+
+type CompanyDetail {
+  businessAddress: String!
+  businessCategory: String
+  businessEmail: String
+  businessPhoneNumber: String
+  companyName: String!
+  companyUrl: String
+  createdAt: DateTime!
+  cvrNumber: String!
+  id: String!
+  logo: String
+  shortIntroductionToTheCompany: String
+  updatedAt: DateTime!
+  user: User
+}
+
+input CompanyDetailCreateInput {
+  businessAddress: String!
+  businessCategory: String
+  businessEmail: String
+  businessPhoneNumber: String
+  companyName: String!
+  companyUrl: String
+  cvrNumber: String!
+  logo: String
+  shortIntroductionToTheCompany: String
+  user: UserWhereUniqueInput
+}
+
+input CompanyDetailCreateNestedManyWithoutUsersInput {
+  connect: [CompanyDetailWhereUniqueInput!]
+}
+
+input CompanyDetailListRelationFilter {
+  every: CompanyDetailWhereInput
+  none: CompanyDetailWhereInput
+  some: CompanyDetailWhereInput
+}
+
+input CompanyDetailOrderByInput {
+  businessAddress: SortOrder
+  businessCategory: SortOrder
+  businessEmail: SortOrder
+  businessPhoneNumber: SortOrder
+  companyName: SortOrder
+  companyUrl: SortOrder
+  createdAt: SortOrder
+  cvrNumber: SortOrder
+  id: SortOrder
+  logo: SortOrder
+  shortIntroductionToTheCompany: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input CompanyDetailUpdateInput {
+  businessAddress: String
+  businessCategory: String
+  businessEmail: String
+  businessPhoneNumber: String
+  companyName: String
+  companyUrl: String
+  cvrNumber: String
+  logo: String
+  shortIntroductionToTheCompany: String
+  user: UserWhereUniqueInput
+}
+
+input CompanyDetailUpdateManyWithoutUsersInput {
+  connect: [CompanyDetailWhereUniqueInput!]
+  disconnect: [CompanyDetailWhereUniqueInput!]
+  set: [CompanyDetailWhereUniqueInput!]
+}
+
+input CompanyDetailWhereInput {
+  businessAddress: StringFilter
+  businessCategory: StringNullableFilter
+  businessEmail: StringNullableFilter
+  businessPhoneNumber: StringNullableFilter
+  companyName: StringFilter
+  companyUrl: StringNullableFilter
+  cvrNumber: StringFilter
+  id: StringFilter
+  logo: StringNullableFilter
+  shortIntroductionToTheCompany: StringNullableFilter
+  user: UserWhereUniqueInput
+}
+
+input CompanyDetailWhereUniqueInput {
+  id: String!
+}
+
+input Credentials {
+  password: String!
+  username: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: DateTime
+  notIn: [DateTime!]
+}
+
+type FavouriteReward {
+  createdAt: DateTime!
+  id: String!
+  rewardId: String
+  updatedAt: DateTime!
+  user: User
+}
+
+input FavouriteRewardCreateInput {
+  rewardId: String
+  user: UserWhereUniqueInput
+}
+
+input FavouriteRewardCreateNestedManyWithoutUsersInput {
+  connect: [FavouriteRewardWhereUniqueInput!]
+}
+
+input FavouriteRewardListRelationFilter {
+  every: FavouriteRewardWhereInput
+  none: FavouriteRewardWhereInput
+  some: FavouriteRewardWhereInput
+}
+
+input FavouriteRewardOrderByInput {
+  createdAt: SortOrder
+  id: SortOrder
+  rewardId: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input FavouriteRewardUpdateInput {
+  rewardId: String
+  user: UserWhereUniqueInput
+}
+
+input FavouriteRewardUpdateManyWithoutUsersInput {
+  connect: [FavouriteRewardWhereUniqueInput!]
+  disconnect: [FavouriteRewardWhereUniqueInput!]
+  set: [FavouriteRewardWhereUniqueInput!]
+}
+
+input FavouriteRewardWhereInput {
+  id: StringFilter
+  rewardId: StringNullableFilter
+  user: UserWhereUniqueInput
+}
+
+input FavouriteRewardWhereUniqueInput {
+  id: String!
+}
+
+input FloatNullableFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: Float
+  notIn: [Float!]
+}
+
+input IntNullableFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: Int
+  notIn: [Int!]
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+type MetaQueryPayload {
+  count: Float!
+}
+
+type Mutation {
+  createClaimedReward(data: ClaimedRewardCreateInput!): ClaimedReward!
+  createCompanyDetail(data: CompanyDetailCreateInput!): CompanyDetail!
+  createFavouriteReward(data: FavouriteRewardCreateInput!): FavouriteReward!
+  createOrganisation(data: OrganisationCreateInput!): Organisation!
+  createReward(data: RewardCreateInput!): Reward!
+  createRewardImage(data: RewardImageCreateInput!): RewardImage!
+  createUser(data: UserCreateInput!): User!
+  deleteClaimedReward(where: ClaimedRewardWhereUniqueInput!): ClaimedReward!
+  deleteCompanyDetail(where: CompanyDetailWhereUniqueInput!): CompanyDetail!
+  deleteFavouriteReward(where: FavouriteRewardWhereUniqueInput!): FavouriteReward!
+  deleteOrganisation(where: OrganisationWhereUniqueInput!): Organisation!
+  deleteReward(where: RewardWhereUniqueInput!): Reward!
+  deleteRewardImage(where: RewardImageWhereUniqueInput!): RewardImage!
+  deleteUser(where: UserWhereUniqueInput!): User!
+  login(credentials: Credentials!): UserInfo!
+  updateClaimedReward(data: ClaimedRewardUpdateInput!, where: ClaimedRewardWhereUniqueInput!): ClaimedReward!
+  updateCompanyDetail(data: CompanyDetailUpdateInput!, where: CompanyDetailWhereUniqueInput!): CompanyDetail!
+  updateFavouriteReward(data: FavouriteRewardUpdateInput!, where: FavouriteRewardWhereUniqueInput!): FavouriteReward!
+  updateOrganisation(data: OrganisationUpdateInput!, where: OrganisationWhereUniqueInput!): Organisation!
+  updateReward(data: RewardUpdateInput!, where: RewardWhereUniqueInput!): Reward!
+  updateRewardImage(data: RewardImageUpdateInput!, where: RewardImageWhereUniqueInput!): RewardImage!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
+}
+
+type Organisation {
+  createdAt: DateTime!
+  id: String!
+  largeImageUrl: String
+  mediumImageUrl: String
+  name: String
+  rewards(orderBy: [RewardOrderByInput!], skip: Float, take: Float, where: RewardWhereInput): [Reward!]!
+  smallImageUrl: String
+  updatedAt: DateTime!
+  website: String
+}
+
+input OrganisationCreateInput {
+  largeImageUrl: String
+  mediumImageUrl: String
+  name: String
+  rewards: RewardCreateNestedManyWithoutOrganisationsInput
+  smallImageUrl: String
+  website: String
+}
+
+input OrganisationOrderByInput {
+  createdAt: SortOrder
+  id: SortOrder
+  largeImageUrl: SortOrder
+  mediumImageUrl: SortOrder
+  name: SortOrder
+  smallImageUrl: SortOrder
+  updatedAt: SortOrder
+  website: SortOrder
+}
+
+input OrganisationUpdateInput {
+  largeImageUrl: String
+  mediumImageUrl: String
+  name: String
+  rewards: RewardUpdateManyWithoutOrganisationsInput
+  smallImageUrl: String
+  website: String
+}
+
+input OrganisationWhereInput {
+  id: StringFilter
+  largeImageUrl: StringNullableFilter
+  mediumImageUrl: StringNullableFilter
+  name: StringNullableFilter
+  rewards: RewardListRelationFilter
+  smallImageUrl: StringNullableFilter
+  website: StringNullableFilter
+}
+
+input OrganisationWhereUniqueInput {
+  id: String!
+}
+
+type Query {
+  _claimedRewardsMeta(orderBy: [ClaimedRewardOrderByInput!], skip: Float, take: Float, where: ClaimedRewardWhereInput): MetaQueryPayload!
+  _companyDetailsMeta(orderBy: [CompanyDetailOrderByInput!], skip: Float, take: Float, where: CompanyDetailWhereInput): MetaQueryPayload!
+  _favouriteRewardsMeta(orderBy: [FavouriteRewardOrderByInput!], skip: Float, take: Float, where: FavouriteRewardWhereInput): MetaQueryPayload!
+  _organisationsMeta(orderBy: [OrganisationOrderByInput!], skip: Float, take: Float, where: OrganisationWhereInput): MetaQueryPayload!
+  _rewardImagesMeta(orderBy: [RewardImageOrderByInput!], skip: Float, take: Float, where: RewardImageWhereInput): MetaQueryPayload!
+  _rewardsMeta(orderBy: [RewardOrderByInput!], skip: Float, take: Float, where: RewardWhereInput): MetaQueryPayload!
+  _usersMeta(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): MetaQueryPayload!
+  claimedReward(where: ClaimedRewardWhereUniqueInput!): ClaimedReward
+  claimedRewards(orderBy: [ClaimedRewardOrderByInput!], skip: Float, take: Float, where: ClaimedRewardWhereInput): [ClaimedReward!]!
+  companyDetail(where: CompanyDetailWhereUniqueInput!): CompanyDetail
+  companyDetails(orderBy: [CompanyDetailOrderByInput!], skip: Float, take: Float, where: CompanyDetailWhereInput): [CompanyDetail!]!
+  favouriteReward(where: FavouriteRewardWhereUniqueInput!): FavouriteReward
+  favouriteRewards(orderBy: [FavouriteRewardOrderByInput!], skip: Float, take: Float, where: FavouriteRewardWhereInput): [FavouriteReward!]!
+  organisation(where: OrganisationWhereUniqueInput!): Organisation
+  organisations(orderBy: [OrganisationOrderByInput!], skip: Float, take: Float, where: OrganisationWhereInput): [Organisation!]!
+  reward(where: RewardWhereUniqueInput!): Reward
+  rewardImage(where: RewardImageWhereUniqueInput!): RewardImage
+  rewardImages(orderBy: [RewardImageOrderByInput!], skip: Float, take: Float, where: RewardImageWhereInput): [RewardImage!]!
+  rewards(orderBy: [RewardOrderByInput!], skip: Float, take: Float, where: RewardWhereInput): [Reward!]!
+  user(where: UserWhereUniqueInput!): User
+  userInfo: UserInfo!
+  users(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): [User!]!
+}
+
+enum QueryMode {
+  Default
+  Insensitive
+}
+
+type Reward {
+  city: String
+  claimedRewards(orderBy: [ClaimedRewardOrderByInput!], skip: Float, take: Float, where: ClaimedRewardWhereInput): [ClaimedReward!]!
+  country: String
+  createdAt: DateTime!
+  description: String
+  discount: Float
+  expirationDate: DateTime
+  id: String!
+  latitude: String
+  longitude: String
+  miles: Float
+  organisation: Organisation
+  rewardImage: RewardImage
+  title: String
+  totalCount: String
+  updatedAt: DateTime!
+}
+
+input RewardCreateInput {
+  city: String
+  claimedRewards: ClaimedRewardCreateNestedManyWithoutRewardsInput
+  country: String
+  description: String
+  discount: Float
+  expirationDate: DateTime
+  latitude: String
+  longitude: String
+  miles: Float
+  organisation: OrganisationWhereUniqueInput
+  rewardImage: RewardImageWhereUniqueInput
+  title: String
+  totalCount: String
+}
+
+input RewardCreateNestedManyWithoutOrganisationsInput {
+  connect: [RewardWhereUniqueInput!]
+}
+
+input RewardCreateNestedManyWithoutRewardImagesInput {
+  connect: [RewardWhereUniqueInput!]
+}
+
+type RewardImage {
+  createdAt: DateTime!
+  id: String!
+  largeImageUrl: String
+  mediumImageUrl: String
+  rewardId: String
+  rewards(orderBy: [RewardOrderByInput!], skip: Float, take: Float, where: RewardWhereInput): [Reward!]!
+  smallImageUrl: String
+  updatedAt: DateTime!
+}
+
+input RewardImageCreateInput {
+  largeImageUrl: String
+  mediumImageUrl: String
+  rewardId: String
+  rewards: RewardCreateNestedManyWithoutRewardImagesInput
+  smallImageUrl: String
+}
+
+input RewardImageOrderByInput {
+  createdAt: SortOrder
+  id: SortOrder
+  largeImageUrl: SortOrder
+  mediumImageUrl: SortOrder
+  rewardId: SortOrder
+  smallImageUrl: SortOrder
+  updatedAt: SortOrder
+}
+
+input RewardImageUpdateInput {
+  largeImageUrl: String
+  mediumImageUrl: String
+  rewardId: String
+  rewards: RewardUpdateManyWithoutRewardImagesInput
+  smallImageUrl: String
+}
+
+input RewardImageWhereInput {
+  id: StringFilter
+  largeImageUrl: StringNullableFilter
+  mediumImageUrl: StringNullableFilter
+  rewardId: StringNullableFilter
+  rewards: RewardListRelationFilter
+  smallImageUrl: StringNullableFilter
+}
+
+input RewardImageWhereUniqueInput {
+  id: String!
+}
+
+input RewardListRelationFilter {
+  every: RewardWhereInput
+  none: RewardWhereInput
+  some: RewardWhereInput
+}
+
+input RewardOrderByInput {
+  city: SortOrder
+  country: SortOrder
+  createdAt: SortOrder
+  description: SortOrder
+  discount: SortOrder
+  expirationDate: SortOrder
+  id: SortOrder
+  latitude: SortOrder
+  longitude: SortOrder
+  miles: SortOrder
+  organisationId: SortOrder
+  rewardImageId: SortOrder
+  title: SortOrder
+  totalCount: SortOrder
+  updatedAt: SortOrder
+}
+
+input RewardUpdateInput {
+  city: String
+  claimedRewards: ClaimedRewardUpdateManyWithoutRewardsInput
+  country: String
+  description: String
+  discount: Float
+  expirationDate: DateTime
+  latitude: String
+  longitude: String
+  miles: Float
+  organisation: OrganisationWhereUniqueInput
+  rewardImage: RewardImageWhereUniqueInput
+  title: String
+  totalCount: String
+}
+
+input RewardUpdateManyWithoutOrganisationsInput {
+  connect: [RewardWhereUniqueInput!]
+  disconnect: [RewardWhereUniqueInput!]
+  set: [RewardWhereUniqueInput!]
+}
+
+input RewardUpdateManyWithoutRewardImagesInput {
+  connect: [RewardWhereUniqueInput!]
+  disconnect: [RewardWhereUniqueInput!]
+  set: [RewardWhereUniqueInput!]
+}
+
+input RewardWhereInput {
+  city: StringNullableFilter
+  claimedRewards: ClaimedRewardListRelationFilter
+  country: StringNullableFilter
+  description: StringNullableFilter
+  discount: IntNullableFilter
+  expirationDate: DateTimeNullableFilter
+  id: StringFilter
+  latitude: StringNullableFilter
+  longitude: StringNullableFilter
+  miles: FloatNullableFilter
+  organisation: OrganisationWhereUniqueInput
+  rewardImage: RewardImageWhereUniqueInput
+  title: StringNullableFilter
+  totalCount: StringNullableFilter
+}
+
+input RewardWhereUniqueInput {
+  id: String!
+}
+
+enum SortOrder {
+  Asc
+  Desc
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+type User {
+  claimedRewards(orderBy: [ClaimedRewardOrderByInput!], skip: Float, take: Float, where: ClaimedRewardWhereInput): [ClaimedReward!]!
+  companyDetails(orderBy: [CompanyDetailOrderByInput!], skip: Float, take: Float, where: CompanyDetailWhereInput): [CompanyDetail!]!
+  createdAt: DateTime!
+  favouriteRewards(orderBy: [FavouriteRewardOrderByInput!], skip: Float, take: Float, where: FavouriteRewardWhereInput): [FavouriteReward!]!
+  firstName: String
+  id: String!
+  lastName: String
+  roles: JSON!
+  updatedAt: DateTime!
+  username: String!
+}
+
+input UserCreateInput {
+  claimedRewards: ClaimedRewardCreateNestedManyWithoutUsersInput
+  companyDetails: CompanyDetailCreateNestedManyWithoutUsersInput
+  favouriteRewards: FavouriteRewardCreateNestedManyWithoutUsersInput
+  firstName: String
+  lastName: String
+  password: String!
+  roles: JSON!
+  username: String!
+}
+
+type UserInfo {
+  accessToken: String
+  id: String!
+  roles: [String!]!
+  username: String!
+}
+
+input UserOrderByInput {
+  createdAt: SortOrder
+  firstName: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  password: SortOrder
+  roles: SortOrder
+  updatedAt: SortOrder
+  username: SortOrder
+}
+
+input UserUpdateInput {
+  claimedRewards: ClaimedRewardUpdateManyWithoutUsersInput
+  companyDetails: CompanyDetailUpdateManyWithoutUsersInput
+  favouriteRewards: FavouriteRewardUpdateManyWithoutUsersInput
+  firstName: String
+  lastName: String
+  password: String
+  roles: JSON
+  username: String
+}
+
+input UserWhereInput {
+  claimedRewards: ClaimedRewardListRelationFilter
+  companyDetails: CompanyDetailListRelationFilter
+  favouriteRewards: FavouriteRewardListRelationFilter
+  firstName: StringNullableFilter
+  id: StringFilter
+  lastName: StringNullableFilter
+  username: StringFilter
+}
+
+input UserWhereUniqueInput {
+  id: String!
+}
